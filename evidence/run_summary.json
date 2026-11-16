@@ -1,0 +1,27 @@
+{
+  "model_name": "Gradient Boosting",
+  "rule": "z",
+  "value": 0.75,
+  "final_features": [
+    "hotel",
+    "lead_time",
+    "arrival_month",
+    "market_segment",
+    "distribution_channel",
+    "customer_type",
+    "reserved_room_type",
+    "is_repeated_guest",
+    "previous_cancellations",
+    "previous_bookings_not_canceled",
+    "stays_in_week_nights",
+    "stays_in_weekend_nights",
+    "arrival_dow",
+    "lead_time_log",
+    "has_weekend_stay",
+    "deposit_type"
+  ],
+  "use_unconfirmed": true,
+  "source_notebook_sha256": "6aeb53cb8bd370be6910425c3b1a0ad7b36bc70118bdd458b43f1d96a17c07f9",
+  "note": "Preserves supplied notebook; includes deposit_type and other timing assumptions.",
+  "proof_replayed": false
+}

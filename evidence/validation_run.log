@@ -1,0 +1,68 @@
+/Users/mpasupuleti/Desktop/IITGN 26-27/Week 6/C2_W06_Build2_Student_Pack/build2-starter/src/backtest.py:111: Pandas4Warning: Series.dt.dayofweek is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  X['arrival_dow'] = frame['arrival_date'].dt.dayofweek.astype(str)
+/Users/mpasupuleti/Desktop/IITGN 26-27/Week 6/C2_W06_Build2_Student_Pack/build2-starter/src/backtest.py:111: Pandas4Warning: Series.dt.dayofweek is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  X['arrival_dow'] = frame['arrival_date'].dt.dayofweek.astype(str)
+/Users/mpasupuleti/Desktop/IITGN 26-27/Week 6/C2_W06_Build2_Student_Pack/build2-starter/src/backtest.py:111: Pandas4Warning: Series.dt.dayofweek is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  X['arrival_dow'] = frame['arrival_date'].dt.dayofweek.astype(str)
+2015-07-01 00:00:00
+2017-08-31 00:00:00
+Training median for children: 0.0
+All selected | Brier: 0.1969 | ROC-AUC: 0.7085
+Confirmed only | Brier: 0.2162 | ROC-AUC: 0.6651
+12 features: ['hotel', 'lead_time', 'arrival_month', 'market_segment', 'distribution_channel', 'customer_type', 'reserved_room_type', 'is_repeated_guest', 'previous_cancellations', 'previous_bookings_not_canceled', 'stays_in_week_nights', 'stays_in_weekend_nights']
+['hotel', 'lead_time', 'arrival_month', 'market_segment', 'distribution_channel', 'customer_type', 'reserved_room_type', 'is_repeated_guest', 'previous_cancellations', 'previous_bookings_not_canceled', 'stays_in_week_nights', 'stays_in_weekend_nights', 'arrival_dow', 'lead_time_log', 'has_weekend_stay', 'deposit_type']
+        accuracy   brier  roc_auc
+C                                
+0.003     0.7241  0.1768   0.7553
+0.010     0.7255  0.1765   0.7589
+0.030     0.7285  0.1781   0.7566
+0.100     0.7304  0.1798   0.7538
+1.000     0.7309  0.1807   0.7523
+10.000    0.7308  0.1808   0.7519
+                            accuracy   brier  roc_auc
+learning_rate max_depth l2                           
+0.03          3         1     0.7330  0.1795   0.7602
+                        0     0.7331  0.1798   0.7581
+              5         1     0.7333  0.1804   0.7598
+                        0     0.7332  0.1809   0.7580
+0.05          5         1     0.7313  0.1817   0.7594
+              3         1     0.7296  0.1819   0.7505
+0.03          7         0     0.7372  0.1820   0.7603
+0.05          3         0     0.7278  0.1820   0.7502
+0.03          7         1     0.7350  0.1823   0.7604
+0.05          5         0     0.7297  0.1835   0.7557
+0.10          3         1     0.7265  0.1843   0.7491
+                        0     0.7270  0.1857   0.7482
+0.05          7         1     0.7271  0.1860   0.7550
+                        0     0.7301  0.1860   0.7525
+0.10          5         0     0.7225  0.1893   0.7505
+                        1     0.7207  0.1895   0.7508
+              7         1     0.7261  0.1907   0.7468
+                        0     0.7203  0.1961   0.7393
+Best C: 0.01 | Best GB setting: (np.float64(0.03), np.int64(3), np.int64(1))
+                 model         set  accuracy   brier  roc_auc
+0         Lookup table       train    0.7238  0.1835   0.7574
+1         Lookup table  validation    0.6664  0.2052   0.6969
+2  Logistic Regression       train    0.8315  0.1269   0.8572
+3  Logistic Regression  validation    0.7255  0.1765   0.7589
+4    Gradient Boosting       train    0.8368  0.1190   0.8714
+5    Gradient Boosting  validation    0.7330  0.1795   0.7602
+                         book  cancelled   expected    spread  stay_value
+hotel      arrival_date                                                  
+City Hotel 2016-07-01     141         68  79.519206  4.953956  319.747589
+           2016-07-02      80         33  35.341350  4.292081  397.106875
+           2016-07-03      85         21  34.262554  4.420875  478.769529
+           2016-07-04      92         30  32.089384  4.265881  440.365543
+           2016-07-05      74         14  27.048652  3.995601  405.705811
+                     expected   actual
+Lookup table          10809.0  10894.0
+Logistic Regression   10164.0  10894.0
+Gradient Boosting      9034.0  10894.0
+                 model  rule  value    cost_eur  empty_rooms  walked_guests  walks_per_1000
+0    Gradient Boosting     z   0.75  1306845.77         3122            159            8.52
+1    Gradient Boosting     b   3.00  1381644.38         3299            149            7.99
+2  Logistic Regression     z   2.25  1634090.27         3970            156            8.36
+3  Logistic Regression     b  10.00  1858357.66         4386            166            8.90
+4     Client flat rule  flat  16.00  2414409.40         5532            169            9.06
+5         Lookup table     b  26.00  3059908.23         7261            185            9.92
+Selected policy: Gradient Boosting | rule: z | setting: 0.75

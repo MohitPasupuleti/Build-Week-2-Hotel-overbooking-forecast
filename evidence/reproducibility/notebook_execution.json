@@ -1,0 +1,14 @@
+{
+  "01_data_preparation.ipynb": {
+    "code_cells": 95,
+    "plots": 15,
+    "seconds": 2.01,
+    "errors": 0
+  },
+  "02_model_training.ipynb": {
+    "code_cells": 24,
+    "plots": 2,
+    "seconds": 31.17,
+    "errors": 0
+  }
+}

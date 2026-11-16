@@ -1,0 +1,26 @@
+{
+  "source_notebook_sha256": "6aeb53cb8bd370be6910425c3b1a0ad7b36bc70118bdd458b43f1d96a17c07f9",
+  "original_cell_count": 167,
+  "original_code_cells_preserved": 125,
+  "preparation_code_cells_executed": 95,
+  "training_code_cells_executed_including_setup": 24,
+  "proof_code_cells_not_executed": 8,
+  "original_cell_sources_unchanged": true,
+  "notebook_and_module_validation_policies_match": true,
+  "proof_predictions_or_scoring_executed": false,
+  "tests": "7 passed; 3 non-fatal pandas deprecation warnings",
+  "validation_recommendation_rows": 28,
+  "packages": {
+    "pandas": "3.1.1",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "joblib": "1.6.0",
+    "pytest": "9.1.1"
+  },
+  "environment_note": "Temporary verification runtime, Python 3.12. Project environment was not changed. Pandas 3.1.1 was used rather than the project pin 3.0.6.",
+  "known_warning": "Original .dt.dayofweek code emits a deprecation warning under pandas 3.1.1; source code was preserved.",
+  "extracted_source_cell_AST_checks_passed": 45,
+  "plots_verified_against_original_source": true
+}

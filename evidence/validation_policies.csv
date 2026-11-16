@@ -1,0 +1,7 @@
+,model,rule,value,cost_eur,empty_rooms,walked_guests,walks_per_1000,ceiling_met,nights
+0,Gradient Boosting,z,0.75,1306845.77,3122,159,8.52,True,368
+1,Gradient Boosting,b,3.0,1381644.38,3299,149,7.99,True,368
+2,Logistic Regression,z,2.25,1634090.27,3970,156,8.36,True,368
+3,Logistic Regression,b,10.0,1858357.66,4386,166,8.9,True,368
+4,Client flat rule,flat,16.0,2414409.4,5532,169,9.06,True,368
+5,Lookup table,b,26.0,3059908.23,7261,185,9.92,True,368
