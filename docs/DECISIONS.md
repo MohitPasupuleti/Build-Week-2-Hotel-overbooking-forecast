@@ -7,13 +7,13 @@ Two tables. The first is the Week 1 decisions log for the data: every cleaning o
 **Owner:** Data Lead.
 
 | Date | Decision | Reason, with the number that justified it | Rows touched | Logged by |
-|---|---|---|---|---|
-| | | | | |
+| ---- | -------- | ----------------------------------------- | ------------ | --------- |
+|      |          |                                           |              |           |
 
 ## Which team decisions and objections did we log?
 
 **Owner:** whoever made the decision. An objection is three lines: what I object to, why, what I propose.
 
-| Date | Artifact | Decision or objection | Raised by | Answer, within 15 minutes | Settled by |
-|---|---|---|---|---|---|
-| | | | | | |
+| Date       | Artifact                                      | Decision or objection                                                                                                                                                                             | Raised by        | Answer, within 15 minutes                              | Settled by                              |
+| ---------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------ | --------------------------------------- |
+| 2026-11-11 | Team roles; `docs/CHARTER.md` and `README.md` | Recorded role assignments: Kunal Pidiha — Client Lead; Diksha — Data Lead; Nitya — Model Lead; Mohit Pasupuleti — Build Lead. Responsibilities and challenger assignments follow `docs/ROLES.md`. | Mohit Pasupuleti | No objection recorded; response timing not applicable. | Assignment supplied by Mohit Pasupuleti |
