@@ -1,86 +1,74 @@
-# What is the project, in one page?
+# How many extra rooms should each hotel sell?
 
-**Owner:** Client Lead. **Closes:** ladder stages 0 and 1. **Length:** one page. **Version 0** is written on paper on Tuesday, with no AI, and typed in here before any AI tool is opened.
-
-Answer each question in one to three sentences. The worked example comes from a different business on purpose (home sample collection at a diagnostics chain, with made-up numbers), so it shows the standard of an answer without giving you the hotel's.
+**Owner:** Kunal Pidiha, Client Lead. **Challenger:** Nitya. Review and sign-off are pending.
 
 ### 1. Who is the client, and who pays whom?
 
-> **Worked example.** The client is the home-collection unit of a diagnostics chain. Patients pay per test (B2C); partner hospitals and corporate health camps pay on monthly invoices (B2B). We are the analytics vendor, and the unit head renews us only if idle phlebotomist slots fall.
+In this course brief, a two-hotel group in Portugal pays RateGain for help deciding how many extra rooms to sell: one city hotel in Lisbon and one resort in the Algarve.
 
-**Our answer:**
+### 2. Who decides, and what does a wrong call cost?
 
-<!-- answer:3 -->
+The revenue manager decides each morning for the next 14 arrival nights. Too few extra bookings leave rooms empty; too many mean moving guests to another hotel, called a “walk”. The scoring rule charges the night's average booked stay value (nightly rate × stay length) per empty room and €300 per walk.
 
-### 2. Who decides, how often, and what does one wrong call cost in each direction?
+### 3. What are we deciding, using what information?
 
-> **Worked example.** The city operations lead fixes each route's bookings every evening for the next morning. An empty slot costs about Rs 450 of phlebotomist time and fuel. A patient we cannot reach in time costs about Rs 600 in a voucher and a rebooking, plus a complaint.
+Recommend a whole number of extra rooms for each hotel and arrival night. Use information known and fixed at booking, add the booking cancellation probabilities, then subtract a safety buffer. The project's cancellation target includes no-shows.
 
-**Our answer:**
+### 4. Why is the decision made per hotel-night?
 
-<!-- answer:3 -->
+Guests arriving at one hotel share its room supply, so they need one combined recommendation. The supplied booking data does not state how many rooms either hotel has available. We can test an extra-booking allowance under the scoring rule, but need room inventory by hotel and date before using it as a live selling limit.
 
-### 3. What is decided, from what is known when, about which outcome?
+### 5. How will we judge success?
 
-> **Worked example.** How many extra visits to book on each route for tomorrow morning, from the bookings known at the end of today, about how many booked patients will not be there when the phlebotomist arrives.
+**North star:** euros saved per calendar month. Numerator: flat-rule cost minus our-rule cost on the same hotel-nights. Denominator: one month. Also report total savings for January–August 2017 and cancellation-related empty rooms per month.
 
-**Our answer:**
+**Guardrail:** at most 10 walks per 1,000 arrivals. Numerator: 1,000 × walked guests. Denominator: scored bookings that did not cancel. Check the whole July–December 2016 choose period and, separately, the whole January–August 2017 proof period; monthly checks are additional.
 
-<!-- answer:3 -->
+Include both hotels and all records in each period. Cancelled bookings count towards costs, but not the arrivals denominator. With no arrivals, the walk rate cannot be assessed.
 
-### 4. What is the unit of decision, and why that unit?
+```text
+Savings against flat rule = flat-rule cost - our-rule cost
+Each rule's cost
+  +-- Empty rooms x average booked stay value
+  +-- Walked guests x EUR 300
+Guardrail alongside both costs: walks / arrivals x 1,000 <= 10
+```
 
-> **Worked example.** The route-morning: one phlebotomist, one morning, about 12 slots. The overbooking is set per route, so per-patient answers are only useful once they are added up per route.
+Reject any rule above the ceiling. Use `src/contract.py` unchanged. It assumes each night's final bookings are already known; live forecasts need a separate check because bookings are still arriving.
 
-**Our answer:**
+### 6. Which brief numbers have we checked?
 
-<!-- answer:2 -->
+| Brief claim or requirement | What we found or still need to check |
+|---|---|
+| About 25% of bookings cancel | 44,224 / 119,390 = **37.04%**, not 25%; 75,166 did not cancel. |
+| 119,390 bookings; 32 columns | Both match the raw file, before adding calculated fields. |
+| Two hotels | City: 79,330 bookings, 33,102 cancelled (41.73%). Resort: 40,060 bookings, 11,122 cancelled (27.76%). |
+| July 2015–August 2017 | Arrival dates run from 1 July 2015 to 31 August 2017. |
+| Train before July 2016 | 49,157 bookings, 1 July 2015–30 June 2016. |
+| Choose on July–December 2016 | 29,546 bookings, 1 July–31 December 2016. |
+| Prove on January–August 2017 | 40,687 bookings, 1 January–31 August 2017. Splits total 119,390 without overlap; no performance claim. |
+| €300 per walk; ceiling of 10 per 1,000 arrivals (1%) | Supplied scoring assumptions, not measured from the data. |
+| Next 14 nights at both hotels | Required output: 28 recommendations. |
+| Vendor claimed 95% accuracy | Unverified; ask for evaluation data, dates and metric definition. |
+| Vendor list abandoned within a month | Unverified; ask staff why it was dropped. |
 
-### 5. What are the north star and the guardrail?
-
-_Give each one a numerator, a denominator, a window and the exclusions. Draw the metric tree underneath: the north star at the top, the two costs below it, the guardrail beside it._
-
-> **Worked example.** North star: idle slots per route-morning, averaged over a calendar month, excluding routes the lab cancelled. Guardrail: patients turned away per 1,000 completed visits, per calendar month, all routes, at most 5.
-
-**Our answer:**
-
-<!-- answer:4 -->
-
-### 6. Which numbers in the brief did we check, and what did the data say?
-
-_Every number in the brief gets a row. A number you could not check gets a question to the client instead._
-
-> **Worked example.**
->
-> | Number in the brief | What we checked | What the data said | What we do about it |
-> |---|---|---|---|
-> | "A home visit takes 20 minutes" | Median time from arrival to sample scan | 26 minutes; 20 is the planned slot length | Plan on the record, not the plan |
-
-| Number in the brief | What we checked | What the data said | What we do about it |
-|---|---|---|---|
-| | | | |
+Checked from raw `data/hotels.csv` using `src/data.py` and `src/contract.py`; see `notebooks/01_data_preparation.ipynb`. The flat rule uses training-period rates only. Data: Antonio, de Almeida and Nunes (2019), CC BY 4.0; details in `data/README.md`.
 
 ### 7. What is out of scope?
 
-> **Worked example.** Pricing of home visits, phlebotomist hiring, and routes outside the three metro cities.
+Room pricing, automatic selling or relocation, live integration and other hotels. The PRD will assess whether marketing's request for hidden guest types helps this decision.
 
-**Our answer:**
+### 8. Who owns what?
 
-<!-- answer:2 -->
+| Person | Role and main responsibility |
+|---|---|
+| Kunal Pidiha | Client Lead: charter, RFP, client observations and business limitations. |
+| Diksha | Data Lead: data checks, column audit, cleaning decisions and features. |
+| Nitya | Model Lead: model comparisons, safety settings and final evaluation. |
+| Mohit Pasupuleti | Build Lead: PRD, build plan, nightly command, architecture and roadmap. |
 
-### 8. Who owns what on this team?
+Review pairs follow `docs/ROLES.md`; sign-offs go in `README.md`.
 
-| Role | Name | Owns |
-|---|---|---|
-| Client Lead | | |
-| Data Lead | | |
-| Model Lead | | |
-| Build Lead | | |
+### 9. What is our main question for the client?
 
-### 9. What is the one question we are sending the client?
-
-> **Worked example.** "Is a no-show recorded by the phlebotomist at the door, or by the call centre the next day?"
-
-**Our answer:**
-
-<!-- answer:2 -->
+When a non-refundable booking cancels or becomes a no-show, does the hotel keep the payment? The data does not tell us. This affects the meaning of lost revenue; meanwhile, we follow the supplied scoring rule.
