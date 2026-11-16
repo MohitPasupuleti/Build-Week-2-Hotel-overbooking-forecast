@@ -1,0 +1,186 @@
+,model,rule,value,cost_eur,empty_rooms,walked_guests,walks_per_1000,ceiling_met,nights
+0,Lookup table,z,0.0,991399.4,1510,1244,66.7,False,368
+1,Lookup table,z,0.25,1040813.26,1718,1109,59.46,False,368
+2,Lookup table,z,0.5,1097053.97,1942,976,52.33,False,368
+3,Lookup table,z,0.75,1169179.0,2183,867,46.48,False,368
+4,Lookup table,z,1.0,1240563.05,2426,768,41.18,False,368
+5,Lookup table,z,1.25,1320505.56,2677,684,36.67,False,368
+6,Lookup table,z,1.5,1409693.89,2947,603,32.33,False,368
+7,Lookup table,z,1.75,1509385.06,3235,538,28.84,False,368
+8,Lookup table,z,2.0,1612571.08,3520,482,25.84,False,368
+9,Lookup table,z,2.25,1721904.15,3817,432,23.16,False,368
+10,Lookup table,z,2.5,1840254.5,4126,393,21.07,False,368
+11,Lookup table,z,2.75,1950850.14,4419,360,19.3,False,368
+12,Lookup table,z,3.0,2073266.98,4732,332,17.8,False,368
+13,Lookup table,z,3.25,2192341.74,5036,305,16.35,False,368
+14,Lookup table,z,3.5,2307648.62,5330,282,15.12,False,368
+15,Lookup table,z,3.75,2421177.13,5618,264,14.15,False,368
+16,Lookup table,z,4.0,2528377.8,5893,245,13.14,False,368
+17,Lookup table,b,0.0,991399.4,1510,1244,66.7,False,368
+18,Lookup table,b,1.0,1046676.68,1731,1097,58.81,False,368
+19,Lookup table,b,2.0,1121703.32,1980,978,52.43,False,368
+20,Lookup table,b,3.0,1205589.34,2241,874,46.86,False,368
+21,Lookup table,b,4.0,1297209.89,2511,782,41.93,False,368
+22,Lookup table,b,5.0,1396799.82,2787,703,37.69,False,368
+23,Lookup table,b,6.0,1503184.95,3072,637,34.15,False,368
+24,Lookup table,b,7.0,1611543.41,3355,577,30.94,False,368
+25,Lookup table,b,8.0,1717308.44,3628,523,28.04,False,368
+26,Lookup table,b,9.0,1822296.8,3894,479,25.68,False,368
+27,Lookup table,b,10.0,1927070.54,4157,444,23.8,False,368
+28,Lookup table,b,11.0,2029437.64,4414,415,22.25,False,368
+29,Lookup table,b,12.0,2127832.83,4662,390,20.91,False,368
+30,Lookup table,b,13.0,2220095.79,4899,366,19.62,False,368
+31,Lookup table,b,14.0,2307754.66,5128,345,18.5,False,368
+32,Lookup table,b,15.0,2391839.58,5347,326,17.48,False,368
+33,Lookup table,b,16.0,2470862.84,5557,307,16.46,False,368
+34,Lookup table,b,17.0,2542515.42,5752,291,15.6,False,368
+35,Lookup table,b,18.0,2612226.32,5943,277,14.85,False,368
+36,Lookup table,b,19.0,2675767.78,6125,264,14.15,False,368
+37,Lookup table,b,20.0,2735739.84,6300,252,13.51,False,368
+38,Lookup table,b,21.0,2794722.25,6472,240,12.87,False,368
+39,Lookup table,b,22.0,2852746.25,6640,229,12.28,False,368
+40,Lookup table,b,23.0,2907780.74,6802,218,11.69,False,368
+41,Lookup table,b,24.0,2961189.81,6960,207,11.1,False,368
+42,Lookup table,b,25.0,3012897.44,7115,196,10.51,False,368
+43,Lookup table,b,26.0,3059908.23,7261,185,9.92,True,368
+44,Lookup table,b,27.0,3106370.62,7405,175,9.38,True,368
+45,Lookup table,b,28.0,3150473.24,7542,165,8.85,True,368
+46,Lookup table,b,29.0,3191592.79,7670,156,8.36,True,368
+47,Lookup table,b,30.0,3229768.24,7790,147,7.88,True,368
+48,Logistic Regression,z,0.0,894331.26,1751,838,44.93,False,368
+49,Logistic Regression,z,0.25,938187.56,1944,715,38.33,False,368
+50,Logistic Regression,z,0.5,1000537.44,2165,605,32.44,False,368
+51,Logistic Regression,z,0.75,1071113.71,2394,504,27.02,False,368
+52,Logistic Regression,z,1.0,1148692.19,2637,427,22.89,False,368
+53,Logistic Regression,z,1.25,1232673.54,2887,354,18.98,False,368
+54,Logistic Regression,z,1.5,1330860.25,3153,289,15.49,False,368
+55,Logistic Regression,z,1.75,1430061.64,3420,239,12.81,False,368
+56,Logistic Regression,z,2.0,1526826.8,3684,196,10.51,False,368
+57,Logistic Regression,z,2.25,1634090.27,3970,156,8.36,True,368
+58,Logistic Regression,z,2.5,1746102.39,4250,124,6.65,True,368
+59,Logistic Regression,z,2.75,1855043.84,4527,94,5.04,True,368
+60,Logistic Regression,z,3.0,1964374.28,4794,72,3.86,True,368
+61,Logistic Regression,z,3.25,2074843.52,5060,51,2.73,True,368
+62,Logistic Regression,z,3.5,2183242.17,5321,35,1.88,True,368
+63,Logistic Regression,z,3.75,2290823.02,5577,24,1.29,True,368
+64,Logistic Regression,z,4.0,2396507.8,5829,18,0.97,True,368
+65,Logistic Regression,b,0.0,894331.26,1751,838,44.93,False,368
+66,Logistic Regression,b,1.0,955975.41,1988,707,37.9,False,368
+67,Logistic Regression,b,2.0,1036024.92,2252,603,32.33,False,368
+68,Logistic Regression,b,3.0,1130439.45,2527,517,27.72,False,368
+69,Logistic Regression,b,4.0,1231780.06,2807,444,23.8,False,368
+70,Logistic Regression,b,5.0,1338449.79,3091,381,20.43,False,368
+71,Logistic Regression,b,6.0,1445672.03,3371,326,17.48,False,368
+72,Logistic Regression,b,7.0,1551311.19,3636,278,14.9,False,368
+73,Logistic Regression,b,8.0,1657962.76,3896,238,12.76,False,368
+74,Logistic Regression,b,9.0,1760854.62,4147,201,10.78,False,368
+75,Logistic Regression,b,10.0,1858357.66,4386,166,8.9,True,368
+76,Logistic Regression,b,11.0,1952648.68,4616,136,7.29,True,368
+77,Logistic Regression,b,12.0,2044885.72,4841,109,5.84,True,368
+78,Logistic Regression,b,13.0,2132806.13,5056,87,4.66,True,368
+79,Logistic Regression,b,14.0,2221453.19,5272,70,3.75,True,368
+80,Logistic Regression,b,15.0,2301749.73,5476,56,3.0,True,368
+81,Logistic Regression,b,16.0,2380866.73,5674,47,2.52,True,368
+82,Logistic Regression,b,17.0,2456779.27,5867,40,2.14,True,368
+83,Logistic Regression,b,18.0,2531545.77,6056,35,1.88,True,368
+84,Logistic Regression,b,19.0,2602409.06,6239,30,1.61,True,368
+85,Logistic Regression,b,20.0,2669821.05,6415,25,1.34,True,368
+86,Logistic Regression,b,21.0,2731220.96,6582,21,1.13,True,368
+87,Logistic Regression,b,22.0,2788999.81,6743,17,0.91,True,368
+88,Logistic Regression,b,23.0,2844829.58,6898,13,0.7,True,368
+89,Logistic Regression,b,24.0,2898475.9,7047,10,0.54,True,368
+90,Logistic Regression,b,25.0,2949596.55,7192,8,0.43,True,368
+91,Logistic Regression,b,26.0,2999604.41,7334,6,0.32,True,368
+92,Logistic Regression,b,27.0,3047393.49,7470,4,0.21,True,368
+93,Logistic Regression,b,28.0,3092276.05,7601,3,0.16,True,368
+94,Logistic Regression,b,29.0,3134187.07,7724,2,0.11,True,368
+95,Logistic Regression,b,30.0,3175034.06,7843,1,0.05,True,368
+96,Gradient Boosting,z,0.0,1036049.21,2378,329,17.64,False,368
+97,Gradient Boosting,z,0.25,1118161.32,2614,265,14.21,False,368
+98,Gradient Boosting,z,0.5,1211413.58,2863,209,11.21,False,368
+99,Gradient Boosting,z,0.75,1306845.77,3122,159,8.52,True,368
+100,Gradient Boosting,z,1.0,1410782.77,3396,117,6.27,True,368
+101,Gradient Boosting,z,1.25,1521060.74,3681,89,4.77,True,368
+102,Gradient Boosting,z,1.5,1637882.44,3974,68,3.65,True,368
+103,Gradient Boosting,z,1.75,1748489.24,4251,47,2.52,True,368
+104,Gradient Boosting,z,2.0,1863459.15,4535,37,1.98,True,368
+105,Gradient Boosting,z,2.25,1996555.24,4858,27,1.45,True,368
+106,Gradient Boosting,z,2.5,2106909.95,5125,20,1.07,True,368
+107,Gradient Boosting,z,2.75,2230240.67,5423,13,0.7,True,368
+108,Gradient Boosting,z,3.0,2343870.58,5701,8,0.43,True,368
+109,Gradient Boosting,z,3.25,2458032.76,5971,5,0.27,True,368
+110,Gradient Boosting,z,3.5,2563503.91,6221,3,0.16,True,368
+111,Gradient Boosting,z,3.75,2663661.76,6461,2,0.11,True,368
+112,Gradient Boosting,z,4.0,2762361.59,6702,0,0.0,True,368
+113,Gradient Boosting,b,0.0,1036049.21,2378,329,17.64,False,368
+114,Gradient Boosting,b,1.0,1140018.25,2668,251,13.46,False,368
+115,Gradient Boosting,b,2.0,1257761.61,2980,195,10.45,False,368
+116,Gradient Boosting,b,3.0,1381644.38,3299,149,7.99,True,368
+117,Gradient Boosting,b,4.0,1507460.41,3615,109,5.84,True,368
+118,Gradient Boosting,b,5.0,1640704.28,3939,84,4.5,True,368
+119,Gradient Boosting,b,6.0,1772788.05,4257,66,3.54,True,368
+120,Gradient Boosting,b,7.0,1899861.79,4559,52,2.79,True,368
+121,Gradient Boosting,b,8.0,2022345.3,4848,41,2.2,True,368
+122,Gradient Boosting,b,9.0,2139390.3,5123,33,1.77,True,368
+123,Gradient Boosting,b,10.0,2250091.19,5384,26,1.39,True,368
+124,Gradient Boosting,b,11.0,2354930.62,5634,20,1.07,True,368
+125,Gradient Boosting,b,12.0,2453900.8,5869,15,0.8,True,368
+126,Gradient Boosting,b,13.0,2543677.13,6089,10,0.54,True,368
+127,Gradient Boosting,b,14.0,2623836.98,6293,7,0.38,True,368
+128,Gradient Boosting,b,15.0,2701192.46,6493,5,0.27,True,368
+129,Gradient Boosting,b,16.0,2771927.19,6681,4,0.21,True,368
+130,Gradient Boosting,b,17.0,2838539.23,6860,3,0.16,True,368
+131,Gradient Boosting,b,18.0,2899019.92,7025,2,0.11,True,368
+132,Gradient Boosting,b,19.0,2957225.95,7186,1,0.05,True,368
+133,Gradient Boosting,b,20.0,3012822.4,7342,0,0.0,True,368
+134,Gradient Boosting,b,21.0,3067390.34,7496,0,0.0,True,368
+135,Gradient Boosting,b,22.0,3117196.95,7640,0,0.0,True,368
+136,Gradient Boosting,b,23.0,3164055.51,7776,0,0.0,True,368
+137,Gradient Boosting,b,24.0,3207504.82,7904,0,0.0,True,368
+138,Gradient Boosting,b,25.0,3248883.26,8026,0,0.0,True,368
+139,Gradient Boosting,b,26.0,3286427.49,8138,0,0.0,True,368
+140,Gradient Boosting,b,27.0,3321690.53,8243,0,0.0,True,368
+141,Gradient Boosting,b,28.0,3354986.93,8343,0,0.0,True,368
+142,Gradient Boosting,b,29.0,3387097.05,8440,0,0.0,True,368
+143,Gradient Boosting,b,30.0,3418170.61,8534,0,0.0,True,368
+144,Client flat rule,flat,0.0,1219523.22,1837,1529,81.98,False,368
+145,Client flat rule,flat,1.0,1255083.86,2022,1346,72.16,False,368
+146,Client flat rule,flat,2.0,1301785.9,2222,1178,63.16,False,368
+147,Client flat rule,flat,3.0,1362172.64,2442,1030,55.22,False,368
+148,Client flat rule,flat,4.0,1435589.08,2684,904,48.47,False,368
+149,Client flat rule,flat,5.0,1515380.92,2934,791,42.41,False,368
+150,Client flat rule,flat,6.0,1603929.94,3194,693,37.15,False,368
+151,Client flat rule,flat,7.0,1695817.27,3459,606,32.49,False,368
+152,Client flat rule,flat,8.0,1788584.55,3724,527,28.25,False,368
+153,Client flat rule,flat,9.0,1877965.08,3979,458,24.56,False,368
+154,Client flat rule,flat,10.0,1964829.52,4226,396,21.23,False,368
+155,Client flat rule,flat,11.0,2051301.98,4468,344,18.44,False,368
+156,Client flat rule,flat,12.0,2131518.48,4696,297,15.92,False,368
+157,Client flat rule,flat,13.0,2204749.73,4915,257,13.78,False,368
+158,Client flat rule,flat,14.0,2275648.93,5126,223,11.96,False,368
+159,Client flat rule,flat,15.0,2346400.01,5333,194,10.4,False,368
+160,Client flat rule,flat,16.0,2414409.4,5532,169,9.06,True,368
+161,Client flat rule,flat,17.0,2476817.51,5721,149,7.99,True,368
+162,Client flat rule,flat,18.0,2537394.64,5905,130,6.97,True,368
+163,Client flat rule,flat,19.0,2596170.54,6085,114,6.11,True,368
+164,Client flat rule,flat,20.0,2652016.54,6259,101,5.41,True,368
+165,Client flat rule,flat,21.0,2709408.31,6434,91,4.88,True,368
+166,Client flat rule,flat,22.0,2766459.92,6607,82,4.4,True,368
+167,Client flat rule,flat,23.0,2822803.16,6779,74,3.97,True,368
+168,Client flat rule,flat,24.0,2878645.51,6948,67,3.59,True,368
+169,Client flat rule,flat,25.0,2932169.77,7110,61,3.27,True,368
+170,Client flat rule,flat,26.0,2985635.56,7270,56,3.0,True,368
+171,Client flat rule,flat,27.0,3037478.17,7426,51,2.73,True,368
+172,Client flat rule,flat,28.0,3088344.78,7579,46,2.47,True,368
+173,Client flat rule,flat,29.0,3138153.48,7728,41,2.2,True,368
+174,Client flat rule,flat,30.0,3186458.63,7873,36,1.93,True,368
+175,Client flat rule,flat,31.0,3234358.08,8017,31,1.66,True,368
+176,Client flat rule,flat,32.0,3280514.63,8156,26,1.39,True,368
+177,Client flat rule,flat,33.0,3326473.34,8294,22,1.18,True,368
+178,Client flat rule,flat,34.0,3369815.4,8425,18,0.97,True,368
+179,Client flat rule,flat,35.0,3411245.05,8550,14,0.75,True,368
+180,Client flat rule,flat,36.0,3452350.34,8674,11,0.59,True,368
+181,Client flat rule,flat,37.0,3491459.65,8792,8,0.43,True,368
+182,Client flat rule,flat,38.0,3527013.92,8901,5,0.27,True,368
+183,Client flat rule,flat,39.0,3561227.73,9006,3,0.16,True,368
+184,Client flat rule,flat,40.0,3593850.32,9106,1,0.05,True,368

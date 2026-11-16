@@ -12,47 +12,53 @@ Only the first bin feeds the MVP. A second-bin column may be tried with its cave
 
 The evidence column holds the number or the source that settled the bin, for example a rate you computed, or a sentence from the dataset article.
 
-| Column | Bin (1, 2 or 3) | Why | Evidence |
-|---|---|---|---|
-| `hotel` | | | |
-| `is_canceled` | | | |
-| `lead_time` | | | |
-| `arrival_date_year` | | | |
-| `arrival_date_month` | | | |
-| `arrival_date_week_number` | | | |
-| `arrival_date_day_of_month` | | | |
-| `stays_in_weekend_nights` | | | |
-| `stays_in_week_nights` | | | |
-| `adults` | | | |
-| `children` | | | |
-| `babies` | | | |
-| `meal` | | | |
-| `country` | | | |
-| `market_segment` | | | |
-| `distribution_channel` | | | |
-| `is_repeated_guest` | | | |
-| `previous_cancellations` | | | |
-| `previous_bookings_not_canceled` | | | |
-| `reserved_room_type` | | | |
-| `assigned_room_type` | | | |
-| `booking_changes` | | | |
-| `deposit_type` | | | |
-| `agent` | | | |
-| `company` | | | |
-| `days_in_waiting_list` | | | |
-| `customer_type` | | | |
-| `adr` | | | |
-| `required_car_parking_spaces` | | | |
-| `total_of_special_requests` | | | |
-| `reservation_status` | | | |
-| `reservation_status_date` | | | |
+| Column                           | Bin (1, 2 or 3) | Why                                                                                                                                                                | Evidence                                                                     |
+| -------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| `hotel`                          | 1               | Selected; the property is known at booking.                                                                                                                        | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `is_canceled`                    | 3               | Target only; never an input.                                                                                                                                       | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `lead_time`                      | 2               | Selected with timing caveat; derived using arrival date, which may be amended.                                                                                     | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `arrival_date_year`              | 2               | Retain for dates and splitting; not an input. Arrival can be amended.                                                                                              | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `arrival_date_month`             | 2               | Expanded uses derived arrival_month; arrival can be amended.                                                                                                       | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `arrival_date_week_number`       | 2               | Omitted to avoid extra calendar representations; arrival can be amended.                                                                                           | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `arrival_date_day_of_month`      | 2               | Retain for dates; omitted as predictor; arrival can be amended.                                                                                                    | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `stays_in_weekend_nights`        | 2               | Selected with timing caveat; stay duration may change after booking.                                                                                               | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `stays_in_week_nights`           | 2               | Selected with timing caveat; stay duration may change after booking.                                                                                               | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `adults`                         | 2               | Omitted; guest counts can be amended and unusual values remain.                                                                                                    | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `children`                       | 2               | Omitted; guest counts can be amended. Four missing training values filled with training median for bookkeeping.                                                    | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `babies`                         | 2               | Omitted; guest counts can be amended and unusual values remain.                                                                                                    | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `meal`                           | 2               | Omitted for simplicity; meal plans can be amended.                                                                                                                 | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `country`                        | 2               | Omitted; correct nationality may only be known at check-in.                                                                                                        | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `market_segment`                 | 2               | Selected with timing caveat; assume recorded segment represents the initial booking source; not independently verifiable.                                          | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `distribution_channel`           | 2               | Selected with timing caveat; assume recorded channel represents the initial channel; not independently verifiable.                                                 | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `is_repeated_guest`              | 1               | Selected; profile creation predates booking creation under the published definition. This is the strongest documented justification, not a reconstructed snapshot. | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `previous_cancellations`         | 2               | Selected with timing caveat; previous bookings are referenced, but outcome availability at current booking creation cannot be reconstructed.                       | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `previous_bookings_not_canceled` | 2               | Selected with timing caveat; earlier bookings must already have resolved before current prediction.                                                                | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `reserved_room_type`             | 2               | Selected with timing caveat; reserved type differs from assigned type but may still be amended.                                                                    | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `assigned_room_type`             | 2               | Excluded; assignments may reflect later operational decisions, including overbooking.                                                                              | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `booking_changes`                | 2               | Excluded; cumulative amendments until check-in or cancellation.                                                                                                    | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `deposit_type`                   | 2               | Excluded; derived from payments before arrival or cancellation, not confirmed initial policy.                                                                      | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `agent`                          | 2               | Omitted for simplicity; identifier, not continuous. Source uses booking/change-log tables.                                                                         | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `company`                        | 2               | Omitted for simplicity and high missingness; identifier, not continuous.                                                                                           | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `days_in_waiting_list`           | 2               | Excluded; complete waiting duration depends on confirmation time.                                                                                                  | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `customer_type`                  | 2               | Selected with timing caveat; assume initial booking arrangement is represented; not independently verifiable.                                                      | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `adr`                            | 2               | Scoring only; transaction-derived value is not confirmed initial quoted price.                                                                                     | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `required_car_parking_spaces`    | 2               | Excluded; request timing is not established.                                                                                                                       | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `total_of_special_requests`      | 2               | Excluded; requests can accumulate after booking.                                                                                                                   | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `reservation_status`             | 3               | Final outcome status; never an input.                                                                                                                              | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+| `reservation_status_date`        | 3               | Date of final status; never an input.                                                                                                                              | Dataset article, Table 1 and extraction method; conservative audit judgment. |
+
+## Source and interpretation
+
+Antonio, de Almeida and Nunes (2019), [Hotel booking demand datasets](https://repositorio.iscte-iul.pt/bitstream/10071/16929/1/Hotelbookingdemanddatasets.pdf), Table 1 and extraction method. Values were extracted relative to the day before arrival. The bins above are conservative modelling judgments, not proof of independently reconstructed event times.
+
+The notebook uses one twelve-input feature set for a historical experiment. It includes bin-2 fields with the caveats stated above; it is not claimed to satisfy the strict first-bin-only MVP requirement. Neither target nor final status fields enter the predictors. The user requested one simple preparation and modelling workflow; the separate two-feature baseline was removed. The earlier-booking definition alone does not establish that the earlier outcome was already known. Derived `arrival_month` inherits arrival-date concerns; derived `nights` is retained for scoring and omitted from predictors because weekday/weekend nights are selected. No proof-period model evaluation has been run during preparation.
 
 ## What happens to a method when the late columns go in?
 
 _Train the same method twice on the same split, once with first-bin columns only and once with the second and third bins added. Then run the first version once more on a random split. Record the three AUCs here and say which one the client should believe._
 
-| Run | Columns | Split | AUC on the proof period |
-|---|---|---|---|
-| A | First bin only | Time | |
-| B | All three bins | Time | |
-| C | First bin only | Random | |
+| Run | Columns        | Split  | AUC on the proof period |
+| --- | -------------- | ------ | ----------------------- |
+| A   | First bin only | Time   |                         |
+| B   | All three bins | Time   |                         |
+| C   | First bin only | Random |                         |
