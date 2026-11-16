@@ -1,8 +1,8 @@
 # How many rooms can each hotel oversell tonight?
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/01-hero-dark.svg">
-  <img src="docs/assets/svg/animated/01-hero-light.svg" alt="How many rooms can each hotel oversell tonight? Of 119,390 bookings, 37.04% were cancelled." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/01-hero-dark.gif">
+  <img src="docs/assets/gif/01-hero-light.gif" alt="How many rooms can each hotel oversell tonight? Of 119,390 bookings, 37.04% were cancelled." width="100%">
 </picture>
 
 Build 2, Week 6. We are a revenue-science squad answering one question from a two-hotel group in Portugal (`BRIEF.md`): for each arrival night, how many rooms beyond capacity can each hotel keep selling, so that cancellations stop leaving rooms empty, without walking more than 10 guests per 1,000 arrivals.
@@ -31,8 +31,8 @@ The answer is judged in euros, rooms and walked guests by the client's own scori
 ## 1. The problem
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/02-problem-dark.svg">
-  <img src="docs/assets/svg/animated/02-problem-light.svg" alt="Cost of one night against the oversell count k: empty rooms below the number of cancellations, 300 euros per walked guest above it." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/02-problem-dark.gif">
+  <img src="docs/assets/gif/02-problem-light.gif" alt="Cost of one night against the oversell count k: empty rooms below the number of cancellations, 300 euros per walked guest above it." width="100%">
 </picture>
 
 A hotel that sells exactly its capacity loses a room every time a booking cancels. A hotel that oversells too far has to walk an arriving guest to another hotel. The contract prices both mistakes for each hotel-night:
@@ -47,8 +47,8 @@ _A_ is the number of that night's bookings that cancelled; _k_ is the oversell c
 ## 2. The system in five steps
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/03-pipeline-dark.svg">
-  <img src="docs/assets/svg/animated/03-pipeline-light.svg" alt="Five steps: date split, features known at booking, cancellation probability, hotel-night table, oversell and score." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/03-pipeline-dark.gif">
+  <img src="docs/assets/gif/03-pipeline-light.gif" alt="Five steps: date split, features known at booking, cancellation probability, hotel-night table, oversell and score." width="100%">
 </picture>
 
 The decision rule is one line:
@@ -62,8 +62,8 @@ k = max(0, floor(expected − z × spread))
 ## 3. The data
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/04-data-dark.svg">
-  <img src="docs/assets/svg/animated/04-data-light.svg" alt="32 columns per booking and three date periods: train 49,157 bookings, choose 29,546, proof 40,687." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/04-data-dark.gif">
+  <img src="docs/assets/gif/04-data-light.gif" alt="32 columns per booking and three date periods: train 49,157 bookings, choose 29,546, proof 40,687." width="100%">
 </picture>
 
 119,390 bookings and 32 columns, arrivals from 1 July 2015 to 31 August 2017: 79,330 at the City Hotel and 40,060 at the Resort Hotel. 44,224 bookings were cancelled, which is 37.04%, not the "one in four" the brief estimated.
@@ -79,8 +79,8 @@ The split is by arrival date, never random:
 ## 4. Preparation and features
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/05-preprocessing-dark.svg">
-  <img src="docs/assets/svg/animated/05-preprocessing-light.svg" alt="32 raw columns, 12 features kept, 47 model inputs after one-hot encoding and scaling." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/05-preprocessing-dark.gif">
+  <img src="docs/assets/gif/05-preprocessing-light.gif" alt="32 raw columns, 12 features kept, 47 model inputs after one-hot encoding and scaling." width="100%">
 </picture>
 
 - **Nothing is deleted.** 16,291 repeated rows stay, because there is no booking ID to prove they are duplicates. 1,085 train bookings carry a quality flag (zero guests, zero nights, zero or extreme price, very large parties, very long stays) and stay too.
@@ -94,15 +94,15 @@ The split is by arrival date, never random:
 All figures in this section are from the train period only.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/06-eda-lead-time-dark.svg">
-  <img src="docs/assets/svg/animated/06-eda-lead-time-light.svg" alt="Cancellation rate rises with lead time: City Hotel 9.2% to 76.2%, Resort Hotel 3.8% to 41.9%." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/06-eda-lead-time-dark.gif">
+  <img src="docs/assets/gif/06-eda-lead-time-light.gif" alt="Cancellation rate rises with lead time: City Hotel 9.2% to 76.2%, Resort Hotel 3.8% to 41.9%." width="100%">
 </picture>
 
 Cancellation climbs steadily with lead time at both hotels. Same-day bookings rarely cancel; City Hotel bookings made 181 or more days ahead cancel 76.2% of the time.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/07-eda-prepaid-segments-dark.svg">
-  <img src="docs/assets/svg/animated/07-eda-prepaid-segments-light.svg" alt="Non-refundable bookings cancelled 99.76% (City) and 94.96% (Resort) of the time; Groups cancel most among market segments." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/07-eda-prepaid-segments-dark.gif">
+  <img src="docs/assets/gif/07-eda-prepaid-segments-light.gif" alt="Non-refundable bookings cancelled 99.76% (City) and 94.96% (Resort) of the time; Groups cancel most among market segments." width="100%">
 </picture>
 
 The brief's first observation ("prepaid means guaranteed") does not hold: 6,328 of 6,343 non-refundable City Hotel bookings were cancelled, and 1,093 of 1,151 at the Resort. Whether the hotel keeps the payment is a question for the client; the data does not say. By segment, Groups cancel most at both hotels.
@@ -115,8 +115,8 @@ Two more checks from the notebook:
 ## 6. Training and selection
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/08-training-workflow-dark.svg">
-  <img src="docs/assets/svg/animated/08-training-workflow-light.svg" alt="Fit on the train period, choose z = 3.25 on the choose period, prove once on the sealed 2017 period." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/08-training-workflow-dark.gif">
+  <img src="docs/assets/gif/08-training-workflow-light.gif" alt="Fit on the train period, choose z = 3.25 on the choose period, prove once on the sealed 2017 period." width="100%">
 </picture>
 
 One model: logistic regression (`max_iter=1000`, `random_state=42`) on the 47 prepared inputs, with no class weights and no resampling, so that the probabilities keep the natural 64 / 36 class mix. Logistic regression was chosen because the decision rule needs a probability per booking that can be summed per night, not a yes or no label.
@@ -128,8 +128,8 @@ Not built in the notebook these graphics come from: the RFP also asks for a look
 ## 7. Is the probability any good?
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/09-evaluation-dark.svg">
-  <img src="docs/assets/svg/animated/09-evaluation-light.svg" alt="Calibration curve and metrics on the choose period: ROC-AUC 0.709, Brier 0.197, mean predicted 34.7% against 36.9% actual." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/09-evaluation-dark.gif">
+  <img src="docs/assets/gif/09-evaluation-light.gif" alt="Calibration curve and metrics on the choose period: ROC-AUC 0.709, Brier 0.197, mean predicted 34.7% against 36.9% actual." width="100%">
 </picture>
 
 | Metric | Train | Choose | Reading |
@@ -143,8 +143,8 @@ Over the 368 choose-period hotel-nights the model expected 10,242 cancellations 
 ## 8. Choosing the buffer
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/10-choosing-the-buffer-dark.svg">
-  <img src="docs/assets/svg/animated/10-choosing-the-buffer-light.svg" alt="Walks per 1,000 arrivals fall as z rises; z = 3.25 is the first value under the ceiling of 10, at a cost of 2,151,912 euros." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/10-choosing-the-buffer-dark.gif">
+  <img src="docs/assets/gif/10-choosing-the-buffer-light.gif" alt="Walks per 1,000 arrivals fall as z rises; z = 3.25 is the first value under the ceiling of 10, at a cost of 2,151,912 euros." width="100%">
 </picture>
 
 With no buffer the rule is cheapest (€1,043,759) but walks 58 guests per 1,000 arrivals. Cost rises with every step of `z`, so the choice is made by the ceiling: `z = 3.25` is the first value under 10, at 8.58 walks per 1,000.
@@ -152,8 +152,8 @@ With no buffer the rule is cheapest (€1,043,759) but walks 58 guests per 1,000
 ## 9. Three rules, one contract
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/11-rule-comparison-dark.svg">
-  <img src="docs/assets/svg/animated/11-rule-comparison-light.svg" alt="Choose-period cost: no oversell 4,155,341 euros, flat rule 2,173,410, ML rule 2,151,912; both tuned rules under the walk ceiling." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/11-rule-comparison-dark.gif">
+  <img src="docs/assets/gif/11-rule-comparison-light.gif" alt="Choose-period cost: no oversell 4,155,341 euros, flat rule 2,173,410, ML rule 2,151,912; both tuned rules under the walk ceiling." width="100%">
 </picture>
 
 | Rule (choose period) | Cost | Empty rooms | Walked guests | Walks per 1,000 | Ceiling met |
@@ -167,8 +167,8 @@ The ML rule comes out €21,498 cheaper than the flat rule, about 1.0%. That mar
 ## 10. One night, worked through
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/12-one-night-dark.svg">
-  <img src="docs/assets/svg/animated/12-one-night-light.svg" alt="Worked example: 102 bookings, 44.1 expected cancellations, buffer 15.8, k = 28; 34 cancelled, 6 rooms left empty, no walks." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/12-one-night-dark.gif">
+  <img src="docs/assets/gif/12-one-night-light.gif" alt="Worked example: 102 bookings, 44.1 expected cancellations, buffer 15.8, k = 28; 34 cancelled, 6 rooms left empty, no walks." width="100%">
 </picture>
 
 The morning table the revenue manager reads has one row per hotel and night. This is the validation-only version (14 nights from 18 December 2016), produced with the choose-period settings:
@@ -212,8 +212,8 @@ The morning table the revenue manager reads has one row per hotel and night. Thi
 ## 11. Where the project stands
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/svg/animated/13-results-dark.svg">
-  <img src="docs/assets/svg/animated/13-results-light.svg" alt="Checked in the data, shown on the choose period, and the 2017 proof still sealed." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/gif/13-results-dark.gif">
+  <img src="docs/assets/gif/13-results-light.gif" alt="Checked in the data, shown on the choose period, and the 2017 proof still sealed." width="100%">
 </picture>
 
 **Limits to state before anyone uses k as a live selling limit**
